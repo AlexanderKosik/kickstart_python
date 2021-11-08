@@ -3,6 +3,7 @@
 To learn and write `python` we need two things to get started:
 
 1) An editor to edit source code files
+
 2) A python interpreter which will run our source code files. This step contains compilation of our source code to byte code and interpreting this byte code (in one step).
 
 The python interpreter is a normal executable and depending on your operation system called `python` or `python.exe`.
@@ -11,12 +12,12 @@ Let's install a python interpreter to get started ...
 
 # TL;DR - Version
 If you have prior knowledge and just want to get started quickly:
-- Download anaconda from [here](https://www.anaconda.com/products/individual "Anaconda Download")
+- Download anaconda from [here](https://www.anaconda.com/products/individual "Anaconda Download") and install it
 - Run an anaconda shell and make sure that `python --version` prints out the version number of your installed interpreter
 
 ```bash
- $ python3 --version
- Python 3.9.7
+ $ python --version
+ Python 3.8.8
  ```
 
 Congratulations, you are ready to learn `python` :blush:
@@ -89,6 +90,6 @@ But if you want to work with a more fullblown IDE  and you know what you are doi
 [PyCharm Community](https://www.jetbrains.com/de-de/pycharm/download/#section=linux, "Pycharm Download"): If you are more into the Jetbrains products, check out PyCharm. A very rich and good Python IDE. 
 
 # Exercises
-[Exercises for week 1](../../exercises/week1/week1.wd)
+[Exercises for week 1](../../exercises/week1/week1.md)
 
 [Overview](../overview.md) \| [Next (Variables)](../02_variables/variables.md)
