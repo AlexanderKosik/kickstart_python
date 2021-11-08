@@ -28,4 +28,4 @@ If you need more introductional material to spyder, you can find additional ress
 - 'Help' -> 'Tutorial Videos'
 
 
-[Back to the 01_environment](../../content/01_environment/environment.md) | [Next chapter](../../content/02_variables/variables.md)
+[Back to the 01_environment](../../content/01_environment/environment.md) | [Next chapter](../../content/02_ready/ready.md)

@@ -92,4 +92,4 @@ But if you want to work with a more fullblown IDE  and you know what you are doi
 # Exercises
 [Exercises for week 1](../../exercises/week1/week1.md)
 
-[Overview](../overview.md) \| [Next (Variables)](../02_variables/variables.md)
+[Overview](../overview.md) \| [Next (Let's go)](../02_ready/ready.md)

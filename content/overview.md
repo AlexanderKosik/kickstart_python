@@ -3,7 +3,7 @@
 ## Content
 
 * [1. Setting up your environment](01_environment/environment.md)
-* [2. Variables](02_variables/variables.md)
+* [2. Variables](02_ready/ready.md)
 * [3. Loops](03_loops/loops.md)
 * [4. Functions](04_functions/functions.md)
 * [5. Lists](05_container_list/lists.md)
