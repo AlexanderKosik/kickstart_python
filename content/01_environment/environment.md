@@ -59,3 +59,5 @@ But if you want to work with a more fullblown IDE  and you know what you are doi
  Make sure that you also have the python extension installed. This is needed for additional features like debugging. 
 
 [PyCharm Community](https://www.jetbrains.com/de-de/pycharm/download/#section=linux, "Pycharm Download"): If you are more into the Jetbrains products, check out PyCharm. A very rich and good Python IDE. 
+
+[Overview](../overview.md) \| [Next (Variables)](../02_variables/variables.md)
