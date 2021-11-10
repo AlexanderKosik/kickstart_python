@@ -13,5 +13,14 @@ Every chapter has at least one exercise. The exercises build up on each other an
 
 If you have problems and cannot solve Ex3a1 have a look at the solution folder. Try to solve the exercise after looking at the solution. Then try to solve an alternative exercise ('b', 'c', ...) if available. 
 
+## Learning a programming language
+This course teaches you the basics of the programming language `python`. Knowing a language and be familiar with its possibilities and also with its limitations is an important part on your learning journey.
+
+If this is one of your first programming languages you learn, than this is only the first of many steps you must take to call yourself a "real programmer" or "software developer". There a literally thousands of books about topics like software engineering, software architecture, clean code, design patterns and principles, test driven development, running and monitoring your software, etc, etc. 
+
+It is not the focus of this 12 week programm to teach you how to become a professional software engineer. We will only focus on a little part of the whole picture: and this is for this programm a short introduction to python.
+
+If you are a beginner, don't be discouraged by the vast amount of advanced topics you need to know and understand to call yourself a software engineer. See it as a great possibility to keep learning and improving yourself. Take it slowly, go step by step and enjoy your journey. It is very, very worthwile :) 
+
 ## Let's start
 [Here](content/overview.md) is the chapter overview for your 12 week python programm.
