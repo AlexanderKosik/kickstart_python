@@ -56,7 +56,7 @@ So a light beam takes a little bit more than 8 minutes from the sun to the earth
 # Literals
 So far we have explored two data types in Python: an integer representing a whole number and floating point numbers. A direct denotation of data values in programs is known as a **literal**, or more verbose an **integer literal** or rather **floating point literal**. 
 
-# Different number representations
+## Different number representations
 If you read the examples from above it might be hard to figure out the exact numbers without counting decimal places. Is the distance to the sun 1.4 million kilometers, 14.9 million kilometers or 149.6 million kilometers?! That's not easy to tell without counting digits.
 
 Python delivers us a possibility to make it easier for humans to read these numbers by using a `_` as a delimiter:
@@ -112,7 +112,7 @@ SyntaxError: invalid syntax
 
 Whenever we want to use a space as a word separator we use an underscore instead. This is also known as `snake_case` (compared to other case styles like `camelCase` or `kebab-case`)
 
-Make sure that every identifier used so far is:
+Make sure that every identifier used so far:
 - starts with a lower case character
 - uses `_` instead of spaces
 
@@ -126,8 +126,13 @@ The formal rules for identifiers in Python are as followed:
 Differ between formal and informal rules.
 Formal rules are enforced by the interpreter, informal rules must be enforced by us
 
-# Binding
-Giving things a name. Bind a name to an existing object
+## Binding
+In Python nearly everything is an object (we will clearify what an object exactly is during the course). For now it may be sufficient for your mental model to see an object as a `thing` we can give a name.
+
+In Python we call this `binding a name to an object`.
+
+
+Giving objects like integer literals things a name. Bind a name to an existing object
 
 
 # statements, expressions
