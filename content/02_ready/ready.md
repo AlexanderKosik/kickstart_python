@@ -95,7 +95,9 @@ So far we have used literals and operators. Let's give these numbers a meaningfu
 498
 ```
 
-As you see in the example instead of using the integer literals directly we give them meaningfull names. We can use these names whenever we need the actual value. This makes our programs easier to read for us and other people. Everyone will know directly, what we want to express with these numbers.
+As you see in the example instead of using the integer literals directly we give them meaningfull names. This is known as **assignment**.
+
+We can use these names whenever we need the actual value to actually do something with it (like using it in a calculating). Using proper names makes our programs easier to read for us and other people. Everyone will know directly, what we want to express with these numbers.
 
 ## Naming conventions
 By convention we write identifiers for literals in lower case. Even though the interpreter would accept a identifier like `Age = 17` it is no good style and we should avoid it.
@@ -124,24 +126,19 @@ The formal rules for identifiers in Python are as followed:
 
 
 Differ between formal and informal rules.
-Formal rules are enforced by the interpreter, informal rules must be enforced by us
+Formal rules are enforced by the interpreter, informal rules must be enforced by us.
 
 ## Binding
 In Python nearly everything is an object (we will clearify what an object exactly is during the course). For now it may be sufficient for your mental model to see an object as a `thing` we can give a name.
 
-In Python we call this `binding a name to an object`.
+If you see code like `mean_distance = 149_600_00` we are binding the name mean_distance to the object representing the number 149.600.00. 
+
+This is an important concept of how Python works. Every assignment of an identifier to a value is a binding of a name to an object. 
+
+If you have already used other programming languages like `Java` or `C++` you may ask yourself is Python using `Call by Value` or `Call by Reference`? The answer is neither of those. Python binds names to objects. We will clearify this in greater detail later.
 
 
-Giving objects like integer literals things a name. Bind a name to an existing object
+# Exercises
+[Exercises for week 2](../../exercises/week2/week2.md)
 
-
-# statements, expressions
-
-
-# immutable/mutable
-
-# further readings: pep8
-# chapter reference
-
-
-
+[Overview](../overview.md) \| [Next chapter](../03_loops/loops.md)
