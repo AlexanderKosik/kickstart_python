@@ -311,4 +311,4 @@ print(start_seq) # prints random sequence of length 100
 
 
 
-[Next (Game of Life)](./gol.md)
+[Next (Forest)](./forest.md)
