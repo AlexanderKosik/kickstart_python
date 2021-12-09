@@ -216,14 +216,19 @@ def new_population(current_population):
     # copy the current_population for our new population
     new_population = copy.deepcopy(current_population)
 
-    # let's iterate over the current_population (without the outer left and outer right edge)
+    # let's iterate over the current_population
+    # (without the outer left and outer right edge)
     for index, _ in enumerate(current_population[1:-1], start=1):
         # use a slice to get adjacent cells
         start_index = index - 1
-        end_index = index + 2 # Why do we use index + 2? Experiment with list slicing if you are unsure
+
+        # Why do we use index + 2?
+        # Experiment with list slicing if you are unsure
+        end_index = index + 2 
         cell_slice = current_population[start_index:end_index]
 
-        # convert the cell slive to a string. (We have already done, so scroll up if unsure)
+        # convert the cell slice to a string. (We have already done this,
+        # scroll up if unsure how to do this)
         # Attention: Do not convert to the output format here!
         pattern = ...
 
@@ -298,6 +303,7 @@ print(start_seq) # prints random sequence of length 100
 
 
 ### Rule 110
+
 | Current state | Next state |
 |---------------|------------|
 | 111           |  0         | 
