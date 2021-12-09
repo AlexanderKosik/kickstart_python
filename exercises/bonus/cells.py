@@ -48,17 +48,15 @@ def new_population(current_population):
     return new_population
 
 while True:
-    next_gen = new_population(population)
-
-    # convert the next_gen to a string 
+    # convert the population to a string 
     # do the replacement of the output format here
-    generation_string = "".join( '#' if char == '1' else ' ' for char in next_gen)
+    output_string = "".join( '#' if char == '1' else ' ' for char in population)
 
-    # the actual printing
-    print(generation_string)
+    # print the current population
+    print(output_string)
 
-    # set current population as basis for the next_gen
-    population = next_gen
+    # calculate new population
+    population = new_population(population)
 
     # let's sleep a little bit. This will print 4 lines per second.
     # Adjust if desired
