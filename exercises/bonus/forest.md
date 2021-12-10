@@ -77,9 +77,10 @@ board[-4] = board[-3]
 ```
 
 Remember that our data logic currently only contains `0s` and `1s`. So our actuall board looks internally something like this (I used a smaller width and height for better visualisation).
+
 ![Board](ressources/board_01.png "Board with 1s and 0s")
 
-The second last line (line 9) will become or seeds later, line 8 and line 7 represent the stalks. For this the lines must contain the same `raw payload` as line 9.
+The second last line (`line 9`) will become or seeds later, `line 8` and `line 7` represent the stalks. For this the lines must contain the same `raw payload` as `line 9`.
 
 For the display of our forest we must now use different symbols, depending on the actual line number.
 
