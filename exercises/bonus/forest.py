@@ -77,7 +77,7 @@ def new_population(current_population):
     return new_population
 
 
-current = -4
+current = 36
 
 while True:
     print_board(board)
@@ -89,5 +89,5 @@ while True:
     # Adjust if desired
     time.sleep(0.5)
 
-    if current == -height:
+    if current == 0:
         break

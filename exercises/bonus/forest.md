@@ -44,7 +44,7 @@ board = [['0' for _ in range(width)] for _ in range(height)]
 
 *Note: We could use numpy for a 2-dimensional board/2-dimensional array. But I intentionally used only Python builtins. Using frameworks like numpy or pandas kind of feels like learning a new programming language and this is not the intention of this course.*
 
-## Initializing the foundation and stalks
+## Initializing the foundation, seeds and stalks
 
 The last line of our board should be a solid foundation. On top of that we distribute seeds randomly.
 We could to this with the following Python code:
@@ -56,7 +56,7 @@ height = 40
 # create the actual board
 board = [['0' for _ in range(width)] for _ in range(height)]
 
-# add earth on the last row of our 2d-board
+# add the foundation on the last row of our 2d-board
 # -1 is the index for the last row
 board[-1] = ['1' for _ in range(width)]
 
@@ -80,7 +80,7 @@ Remember that our data logic currently only contains `0s` and `1s`. So our actua
 
 ![Board](ressources/board_01.png "Board with 1s and 0s")
 
-The second last line (`line 9`) will become or seeds later, `line 8` and `line 7` represent the stalks. For this the lines must contain the same `raw payload` as `line 9`.
+The second last line (`line 9`) will become our seeds later on, `line 8` and `line 7` represent the stalks. For this the lines must contain the same `raw payload` as `line 9`.
 
 For the display of our forest we must now use different symbols, depending on the actual line number.
 
@@ -167,6 +167,12 @@ Let's put every part together.
 # We need to know at which line our rule_90 is applied.
 # Can you figure out where we the rule starts and
 # where the static data ends?
+# Here are some hints:
+# first line has index 0
+# last line (foundation) has index 39
+# seed line has index 38
+# stalks are on ...
+# the last seed line needs to be our current starting point
 current = ...
 
 while True:
@@ -175,12 +181,16 @@ while True:
     # we can reuse the new_population function
     # but we cannot pass the complete board.
     # What do we need to pass instead?
+    # We need to pass just a single row
+    # The current row in indicated by variable `current`
     new_pop = new_population(...)
 
     # We decrement the line number
+    # because we go from bottom to top
     current -= 1
 
     # and update the line in our board
+    # the updated board will be printed in the next iteration
     board[current] = new_pop
 
     # let's sleep a little bit. 
@@ -188,8 +198,8 @@ while True:
     time.sleep(1.0)
 
     # What do we do if our plants have reached the end of our "scene"?
-    # Maybe we just quit
-    if current == -height:
+    # We just quit by breaking or while loop
+    if current == 0:
         break
 ```
 
