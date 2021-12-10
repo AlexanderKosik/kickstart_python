@@ -203,4 +203,4 @@ while True:
         break
 ```
 
-[Back (Cellular automaton)](./cellular_automation.md)
+[Overview](./overview.md) | [Previous chapter (Cellular automatons)](./cellular_automation.md) | [ Next chapter (Game Of Life)](./gol.md)

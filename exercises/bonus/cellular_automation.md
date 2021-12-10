@@ -300,8 +300,6 @@ start_seq = random_sequence(length=100)
 print(start_seq) # prints random sequence of length 100
 ```
 
-
-
 ### Rule 110
 
 | Current state | Next state |
@@ -315,6 +313,8 @@ print(start_seq) # prints random sequence of length 100
 | 001           |  1         | 
 | 000           |  0         | 
 
+Try out the `rule 110` and explore the output :)
 
+If you are ready to explore the usage of `rule 90` in a 2-dimensional board, proceed with the next chapter.
 
-[Next (Forest)](./forest.md)
+[Back to overview](./overview.md) |[ Next (Creating a forest)](./forest.md)
