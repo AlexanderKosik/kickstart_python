@@ -1,6 +1,6 @@
 # Creating a forest
 
-In the last chapter we used `rule 90` to create the Sierpinski triangle. We now want to use the the logic to create some trees/plants growing from the bottom to the top.
+In the last chapter we used `rule 90` to create the Sierpinski triangle. We now want to use the same logic to create some trees/plants growing from the bottom to the top.
 
 The final result should look similar to this:
 ![Forest](ressources/forest.png "Forest")
@@ -10,7 +10,7 @@ The bottom line with the `#` symbols represents our foundation. On top of that w
 Out of the fact that our plants grow step by step from bottom to top we cannot use a 1-dimensional game board. In the example before it was possible to print the content of the board and forget about it. We created a new 1-dimensional "row" dependening on the previous row and it was overwritten.
  We could do that before, because a 1-dimensional board is actually just a row and **we printed from top to bottom**. 
 
-For out forest we need a 2-dimensional board, drawn completely with every step and filled with content, step by step, from bottom to top. Because of the fact that we draw the complete board in every step and fill it from below it seems that our plants/trees are growing.
+For our forest we need a 2-dimensional board, drawn completely with every step and filled with content, step by step, from bottom to top. Because of the fact that we draw the complete board in every step and fill it from below it seems that our plants/trees are growing.
 
 ## 2-dimensional game board
 
@@ -65,8 +65,23 @@ board[-2] = ['1' if random.random() < 0.1 else '0' for _ in range(width)]
 
 # add 2 lines with ones on the position 
 # of seeds. These are for our stalks
-board[-3] = board[-4] = board[-2]
+board[-4] = board[-3] = board[-2]
 ```
+
+In the last line we use the same row for the third last and for the forth last line, which is the same as our second last line. 
+
+This is just a shortcut for writing:
+```python
+board[-3] = board[-2]
+board[-4] = board[-3]
+```
+
+Remember that our data logic currently only contains `0s` and `1s`. So our actuall board looks internally something like this (I used a smaller width and height for better visualisation).
+![Board](ressources/board_01.png "Board with 1s and 0s")
+
+The second last line (line 9) will become or seeds later, line 8 and line 7 represent the stalks. For this the lines must contain the same `raw payload` as line 9.
+
+For the display of our forest we must now use different symbols, depending on the actual line number.
 
 ## Using different symbols
 In our previous example we used the same kind of symbols for every row (`#` symbols). We now want to change this for our forest. The foundation should be representated by `#`, the stalks be representated by `|` and the actual plant by a `$` symbol. 
@@ -145,6 +160,7 @@ One important aspect happens in line `output_line = output_line.replace("1", sym
 # Putting it all together
 
 Let's put every part together. 
+
 ```python
 
 # We need to know at which line our rule_90 is applied.
@@ -174,3 +190,4 @@ while True:
     # Maybe we just quit
     if current == -height:
         break
+```
