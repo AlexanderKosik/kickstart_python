@@ -135,8 +135,8 @@ import os
 
 def print_board(board):
     """
-    print the board.
-    Therefore the clean must be cleared before. To this with a system 'cls' command
+    Prints the game board. Must be a list of lists.
+    To print the screen must be cleared before. We can do this with a system 'cls' command
     """ 
     # clear the screen
     os.system('cls')
