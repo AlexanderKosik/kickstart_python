@@ -89,9 +89,9 @@ Anyway ... in both cases we have to know the number of living neighbours for our
 
 ## Calculating the number of alive neighbours
 
-There are multiple approaches to calculate the number of alive neighbours. We discuss each approach in detail.
+There are multiple approaches to calculate the number of alive neighbours. Some are more verbose, some are more dense. 
 
-To get the number of alive neighbours for cell `x, y` we must inspect the cell state of 8 surrounding cells. 
+In any case if we want to get the number of alive neighbours for cell `x, y` we must inspect the cell state of 8 surrounding cells. 
 
 ![Alive neighbours grif](ressources/alive_neighbours_grid.png "Alive neighbours grid")
 
@@ -121,12 +121,12 @@ for y in range(y_from, y_to + 1):
 # Pay attention:
 # we just want to get the number of alive neighbours
 # but we also summed up the CUI
-# (We summed up 9 cells instead of 8)
+# (we summed up 9 cells instead of 8)
 # therefor we must substract the cell state of the CUI
 alive_cells -= board[y][x] 
 ```
 
-Pay attention that we use `x_to + 1` and `y_to +1` in the range. This reason is that `range` works **exclusive** the upper limit. Consider calling `help(range)` in an interactive sessions for more details on that. 
+Pay attention that we use `x_to + 1` and `y_to +1` in `range`. This reason is that `range` works **exclusive** the upper limit. Consider calling `help(range)` in an interactive sessions for more details on that. 
 
 Let's pack the logic in a separate function and write some tests to make sure it works.
 
@@ -143,7 +143,8 @@ def alive_neighbours(board, cell_coordinate: tuple) -> int:
     x_from, x_to = x-1, x+1
     y_from, y_to = y-1, y+1
 
-    # lets write the nested for loop as a comprehension and use builtin function sum
+    # lets write the nested for loop as a comprehension 
+    # and use the builtin function sum
     alive_cells = sum(board[y][x] 
         for y in range(y_from, y_to +1)
         for x in range(x_from, x_to +1))
@@ -174,7 +175,7 @@ In configuration `A` on the left side we want to get the number of alive neighbo
 
 In configuration `B` on the right side we want to get the number of alive neighbours on the top left corner of the game board. In this case `x-1` and `y-1` are no valid position on the board.
 
-We need to catch these invalid configuration. One way is to check the values before using them in range. 
+We need to catch these invalid configuration. One way is to sanitize the values before we use them in `range`. 
 
 ```python
 height = 3
@@ -187,21 +188,21 @@ def alive_neighbours(board, cell_coordinate: tuple) -> int:
     # unpack the tuple
     x, y = cell_coordinate
 
-    # We do not want to have 'from_values' below 0, therefore we use min
-    # We do not want to have 'to_values' above our max width/height
-    # Pay attention: last valid width index is width -1
-    # Pay attention: last valid height index is height -1
+    # We do not want to have 'from_values' below 0, therefore we use max
+    # We do not want to have 'to_values' above our defined width/height, 
+    # therefore we use min
+    # Pay attention: 
+    # last valid width idx is width -1, last valid height idx is height -1
     x_from, x_to = max(x-1, 0), min(x+1, width -1)
     y_from, y_to = max(y-1, 0), min(y+1, height -1)
 
-    # lets write the nested for loop as a comprehension and use builtin function sum
+    # use of comprehension and sum
     alive_cells = sum(board[y][x] 
         for y in range(y_from, y_to +1)
         for x in range(x_from, x_to +1))
 
     # reduce by cell state of CUI
-    alive_cells -= board[y][x] 
-    return alive_cells
+    return alive_cells - board[y][x] 
 
 # Test configuration A
 coord = (2, 2)
@@ -214,7 +215,7 @@ assert alive_neighbours(board, coord) == 3, "3 alive neighbours on B"
 
 # Putting it all together
 
-We can now put every peace together. Some functions may be reused with minor modifications from the previous examples. 
+We can now put every piece together. Some functions may be reused with minor modifications from the previous examples. 
 
 ```python
 import random
@@ -284,9 +285,11 @@ while True:
     board = next_gen
 
     # adjust to your demands
-    time.sleep(0.5)
+    time.sleep(0.1)
 
 ```
+
+Isn't it incredible to see our screen come to life? :)
 
 ## Trivia
 In the early 1970s the game was so popular, that the us army estimated the costs of consumed computing time by the game to several millions of dollars. 
