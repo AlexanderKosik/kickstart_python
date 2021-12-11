@@ -20,26 +20,28 @@ To calculate the next population we start with the number of alive neighbours of
 
 Let's have a look at the four rules in detail.
 
+To be precise in what we mean let us call the cell with the orange boarder the "cell under inspection", or in a short way the `CUI`. 
+
 ### 1. Underpopulation
-If a living cell has less than 2 living neighbours the cell is dead in the next population because of underpopulation.
+If the CUI has less than 2 living neighbours the cell is dead in the next population because of underpopulation.
 
 ### 2. Stay alive
-If a living cell has exactly 2 or 3 living neighbours it will stay alive in the next population. 
+If the CUI has exactly 2 or 3 living neighbours and it is alive it will stay alive in the next population. 
 
 ### 3. Overcrowding
-If a living cell has more than 3 living neighbours it will be dead in the next population because of overcrowding
+If the CUI has more than 3 living neighbours it will be dead in the next population because of overcrowding
 
 ### 4. Resurrection
-If a living cell is dead in the current population but has exactly 3 living neighbours it will be resurrected and be alive in the next population.
+If a cell is dead in the current population but has exactly 3 living neighbours it will be resurrected and be alive in the next population.
 
-How can we implement the game rules in Python? We could to it like this ...
+How can we implement the game rules in Python? We could do it like this ...
 
 ```python
 DEAD = 0
 ALIVE = 1
 
 # Implementation of the game rules
-def game_rules(alive_neighbours: int, cui_alive: bool) -> int
+def game_rules(alive_neighbours: int, cui_alive: int) -> int
     """
     The game rules descide depending on the number of alive_neighbours 
     and the cell state of the CUI if the cell
@@ -66,7 +68,7 @@ state_change = {
     ...
 }
 
-def game_rules(alive_neighbours: int, cui_alive: bool) -> int
+def game_rules(alive_neighbours: int, cui_alive: int) -> int
     """
     The game rules descide depending on the number of alive_neighbours 
     and the cell state of the CUI if the cell
@@ -286,8 +288,11 @@ while True:
 
 ```
 
-Trivia: In the early 1970s the game was so popular, that the us army estimated the costs of consumed computing time by the game to several millions of dollars. 
+## Trivia
+In the early 1970s the game was so popular, that the us army estimated the costs of consumed computing time by the game to several millions of dollars. 
 
 # Additional Ressources
 If you want so see a short introduction into Game of Life of Cellular automaton, have a look at this video. (you can enable subtitles if needed)
 https://www.youtube.com/watch?v=DUfdBdrK2ag
+
+[Overview](./overview.md) | [Previous chapter (Forest)](./forest.md) | [ Next chapter (Variations)](./gol_variations.md)
