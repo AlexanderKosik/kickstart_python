@@ -1,6 +1,4 @@
-# Cellular Automatons
-
-## Overview
+# Cellular Automatons in Python
 
 * [1. Introduction to cellular automatons](cellular_automation.md)
 * [2. Creating a forest](forest.md)
