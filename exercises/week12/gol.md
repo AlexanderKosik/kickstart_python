@@ -1,3 +1,5 @@
+[Overview](./overview.md) | [Back (Forest)](./forest.md) | [ Next (Variations)](./gol_variations.md)
+
 # Game of Life
 
 The Game of Life is a 2-dimensional game without players. We have already created most of the components we need for the game in the previous chapter. 
@@ -298,4 +300,4 @@ In the early 1970s the game was so popular, that the us army estimated the costs
 If you want so see a short introduction into Game of Life of Cellular automaton, have a look at this video. (you can enable subtitles if needed)
 https://www.youtube.com/watch?v=DUfdBdrK2ag
 
-[Overview](./overview.md) | [Previous chapter (Forest)](./forest.md) | [ Next chapter (Variations)](./gol_variations.md)
+[Overview](./overview.md) | [Back (Forest)](./forest.md) | [ Next (Variations)](./gol_variations.md)
