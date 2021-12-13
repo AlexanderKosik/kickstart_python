@@ -12,9 +12,11 @@ Think of our current game board like a piece of paper with hard edges. We cannot
 
 In this case moving out of the left edge would mean that we move in on the right edge. And if we do the same for the top and bottom edge, than we are done with our game board acting like a sphere.
 
-For that we have to change our active neighbour function. Instead of having a hard boundary limitation we must "look beyond the horizon". 
+For that we have to change our `alive_neighbours` function. Instead of having a hard boundary we must "look beyond the horizon". 
 
-So if we access an item with negative coordinates (CUI is on `0, 0` for example), we must access the item on the right side. Accessing a Python List actually already works like this. 
+Let us assume that our CUI has coordinates `0, 0`. For simplicity we only focus on 1 axis, in this case the `x` axis. For the calculation of alive neighbours we must check the neighbours from `x-1` to `x+1`. `x-1` will result in `-1` for the CUI with coordinates `0, 0`.
+
+The cool thing about lists is, that we can acutally access items with negative indices. 
 
 ```python
 l = list(range(10))
@@ -22,6 +24,41 @@ l = list(range(10))
 # using index based access we can access the last item by using negative indices
 print(l[0], l[-1])
 ```
+So this case will already work. 
+
+The problem is when we try to access items outside the valide range of the list.
+```python
+l = list(range(10))
+
+# will raise in IndexError. Valid indices are from 0 to 9
+print(l[10])    # IndexError!
+```
+
+What we like to do is accessing item with index 0 if we access an item out of bound. If this is not clear think about the paper roll.
+
+But how can we implement this in a simple way? We could use the `%` operator. 
+```python
+width = 3
+l = list(range(width))
+
+index = 0
+print(l[index % width])    # Access idx 0
+
+index = 1
+print(l[index % width])    # Access idx 1
+
+index = 2
+print(l[index % width])    # Access idx 2
+
+index = 3                  # This index is invalid!
+print(l[index % width])    # Modulo avoids an IndexError. Access idx 0
+```
+
+If we access items "on the other side of the list", we cannot use a simple for loop anymore. Using a for loop from `-1` to `2` (end range is exclusive) would still work, but on the other side this would lead to errors. Assuming a board width of 10 looping from `8` to `1` (`10 % 10 +1`) is not possible.
+
+For that reason we have to access the items individually.
+
+So let's take these new findings into account in the new implementation of `alive_neighbours`. 
 
 ```python
 def alive_neighbours(board, cell_coordinate: tuple) -> int:
@@ -31,22 +68,21 @@ def alive_neighbours(board, cell_coordinate: tuple) -> int:
     # unpack the tuple
     x, y = cell_coordinate
 
-    # We do not want to have 'from_values' below 0, therefore we use max
-    # We do not want to have 'to_values' above our defined width/height, 
-    # therefore we use min
-    # Pay attention: 
-    # last valid width idx is width -1, last valid height idx is height -1
-    x_from, x_to = max(x-1, 0), min(x+1, width -1)
-    y_from, y_to = max(y-1, 0), min(y+1, height -1)
+    x_from, x_to = x-1, (x+1) % width
+    y_from, y_to = y-1, (y+1) % height
 
-    # use of comprehension and sum
-    alive_cells = sum(board[y][x] 
-        for y in range(y_from, y_to +1)
-        for x in range(x_from, x_to +1))
+    # Access the items individually and sum them up 
+    # (sum needs an iterable, so we create a temporary list, without the CUI)
+    alive_cells = sum([
+        board[y_from][x_from], board[y_from][x],board[y_from][x_to],
+        board[y][x_from],                       board[y][x_to],
+        board[y_to][x_from],   board[y_to][x],  board[y_to][x_to],
+    ])
 
-    # reduce by cell state of CUI
-    return alive_cells - board[y][x] 
+    return alive_cells 
 
 ```
+
+That is the only function we have to change for a spherical game board. That is kind of neat :)
 
 [Overview](./overview.md) | [Previous chapter (Game of Life)](./gol.md) 
