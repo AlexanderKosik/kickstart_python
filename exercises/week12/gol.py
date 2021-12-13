@@ -40,6 +40,32 @@ def alive_neighbours(board, cell_coordinate: tuple) -> int:
     alive_cells -= board[y][x] 
     return alive_cells
 
+def alive_neighbours(board, cell_coordinate: tuple) -> int:
+    """
+    Returns the number of alive neighbours on a spherical game board 
+    """
+    # unpack the tuple
+    x, y = cell_coordinate
+
+    x_from, x_to = x-1, (x+1) % width
+    y_from, y_to = y-1, (y+1) % height
+
+    # Access the items individually and sum them up 
+    # (sum needs an iterable, so we create a temporary list, without the CUI)
+    try: 
+        alive_cells = sum([
+            board[y_from][x_from], board[y_from][x],board[y_from][x_to],
+            board[y][x_from],                       board[y][x_to],
+            board[y_to][x_from],   board[y_to][x],  board[y_to][x_to],
+        ])
+    except IndexError:
+        print(x_from, x, x_to)
+        print(y_from, y, y_to)
+        raise
+
+    return alive_cells 
+
+
 #################
 # Game Rules
 #################
@@ -70,7 +96,7 @@ def print_board(board):
     Therefore the screen must be cleared before. To this with a system 'cls' command
     """ 
     # clear the screen
-    os.system('clear')
+    os.system('cls')
 
     # print our board
     for row in board:
