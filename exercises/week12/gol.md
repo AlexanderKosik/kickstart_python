@@ -105,10 +105,10 @@ board = [[0 for _ in range(3)] for _ in range(3)]
 # let's call the "cell under inspection" a CUI
 
 # the CUI is in the middle of our 3x3 board
-x = y = 1
+x_cui = y_cui = 1
 
-x_from, x_to = x-1, x+1
-y_from, y_to = y-1, y+1
+x_from, x_to = x_cui-1, x_cui+1
+y_from, y_to = y_cui-1, y_cui+1
 
 alive_cells = 0
 # for every row 
@@ -125,7 +125,7 @@ for y in range(y_from, y_to + 1):
 # but we also summed up the CUI
 # (we summed up 9 cells instead of 8)
 # therefor we must substract the cell state of the CUI
-alive_cells -= board[y][x] 
+alive_cells -= board[y_cui][x_cui] 
 ```
 
 Pay attention that we use `x_to + 1` and `y_to +1` in `range`. This reason is that `range` works **exclusive** the upper limit. Consider calling `help(range)` in an interactive sessions for more details on that. 
