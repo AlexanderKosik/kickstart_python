@@ -1,3 +1,5 @@
+[Overview](./overview.md) | [Back (Game of Life)](./gol.md) 
+
 # Other kind of game boards
 
  In the previous example we had a hard cut on the edge of our game board. What if we change this by using a sphere for a game board? I think this sounds like fun ... :)
@@ -85,4 +87,4 @@ def alive_neighbours(board, cell_coordinate: tuple) -> int:
 
 That is the only function we have to change for a spherical game board. That is kind of neat :)
 
-[Overview](./overview.md) | [Previous chapter (Game of Life)](./gol.md) 
+[Overview](./overview.md) | [Back (Game of Life)](./gol.md) 

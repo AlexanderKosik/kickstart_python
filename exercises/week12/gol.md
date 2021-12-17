@@ -43,14 +43,14 @@ DEAD = 0
 ALIVE = 1
 
 # Implementation of the game rules
-def game_rules(alive_neighbours: int, cui_alive: int) -> int
+def game_rules(alive_neighbours: int, cui_alive: int) -> int:
     """
     The game rules descide depending on the number of alive_neighbours 
     and the cell state of the CUI if the cell
     will be dead or alive in the next population
     """
 
-    if alive_neibours < 2:
+    if alive_neighbours < 2:
         return DEAD
     elif ... :
 
