@@ -1,3 +1,5 @@
+[Overview](./overview.md) | [Back (Forest)](./forest.md) | [ Next (Variations)](./gol_variations.md)
+
 # Game of Life
 
 The Game of Life is a 2-dimensional game without players. We have already created most of the components we need for the game in the previous chapter. 
@@ -41,14 +43,14 @@ DEAD = 0
 ALIVE = 1
 
 # Implementation of the game rules
-def game_rules(alive_neighbours: int, cui_alive: int) -> int
+def game_rules(alive_neighbours: int, cui_alive: int) -> int:
     """
     The game rules descide depending on the number of alive_neighbours 
     and the cell state of the CUI if the cell
     will be dead or alive in the next population
     """
 
-    if alive_neibours < 2:
+    if alive_neighbours < 2:
         return DEAD
     elif ... :
 
@@ -103,10 +105,10 @@ board = [[0 for _ in range(3)] for _ in range(3)]
 # let's call the "cell under inspection" a CUI
 
 # the CUI is in the middle of our 3x3 board
-x = y = 1
+x_cui = y_cui = 1
 
-x_from, x_to = x-1, x+1
-y_from, y_to = y-1, y+1
+x_from, x_to = x_cui-1, x_cui+1
+y_from, y_to = y_cui-1, y_cui+1
 
 alive_cells = 0
 # for every row 
@@ -123,7 +125,7 @@ for y in range(y_from, y_to + 1):
 # but we also summed up the CUI
 # (we summed up 9 cells instead of 8)
 # therefor we must substract the cell state of the CUI
-alive_cells -= board[y][x] 
+alive_cells -= board[y_cui][x_cui] 
 ```
 
 Pay attention that we use `x_to + 1` and `y_to +1` in `range`. This reason is that `range` works **exclusive** the upper limit. Consider calling `help(range)` in an interactive sessions for more details on that. 
@@ -298,4 +300,4 @@ In the early 1970s the game was so popular, that the us army estimated the costs
 If you want so see a short introduction into Game of Life of Cellular automaton, have a look at this video. (you can enable subtitles if needed)
 https://www.youtube.com/watch?v=DUfdBdrK2ag
 
-[Overview](./overview.md) | [Previous chapter (Forest)](./forest.md) | [ Next chapter (Variations)](./gol_variations.md)
+[Overview](./overview.md) | [Back (Forest)](./forest.md) | [ Next (Variations)](./gol_variations.md)

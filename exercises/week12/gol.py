@@ -2,6 +2,8 @@ import random
 import time
 import copy
 import os
+import sys
+import re
 
 #######
 # BOARD
@@ -40,6 +42,29 @@ def alive_neighbours(board, cell_coordinate: tuple) -> int:
     alive_cells -= board[y][x] 
     return alive_cells
 
+<<<<<<< HEAD:exercises/bonus/gol.py
+def alive_neighbours_sphere(board, cell_coordinate: tuple) -> int:
+=======
+def alive_neighbours(board, cell_coordinate: tuple) -> int:
+>>>>>>> 00be2838fce09317ce3178fae08fefe13135787d:exercises/week12/gol.py
+    """
+    Returns the number of alive neighbours on a spherical game board 
+    """
+    # unpack the tuple
+    x, y = cell_coordinate
+
+    x_from, x_to = x-1, (x+1) % width
+    y_from, y_to = y-1, (y+1) % height
+
+    # Access the items individually and sum them up 
+    # (sum needs an iterable, so we create a temporary list, without the CUI)
+    alive_cells = sum([
+        board[y_from][x_from], board[y_from][x],board[y_from][x_to],
+        board[y][x_from],                       board[y][x_to],
+        board[y_to][x_from],   board[y_to][x],  board[y_to][x_to],
+    ])
+
+    return alive_cells 
 #################
 # Game Rules
 #################
@@ -67,10 +92,11 @@ def game_rules(nalive, cui_state):
 def print_board(board):
     """
     Prints the passed game board. Must be a list of a list.
-    Therefore the screen must be cleared before. To this with a system 'cls' command
+    Therefore the screen must be cleared before. Do this with a system 'cls'
+    command (windows) or 'clear' on unix
     """ 
     # clear the screen
-    os.system('clear')
+    os.system('cls')
 
     # print our board
     for row in board:
@@ -80,6 +106,28 @@ def print_board(board):
         output_line = output_line.replace("1", "x")
         output_line = output_line.replace("0", " ")
         print(output_line)
+
+
+def init_board(filename):
+    global board
+    board = [[0 for _ in range(width)] for _ in range(height)]
+    y = height // 2
+    x = width // 2
+    with open(filename) as f:
+        current_row = y
+        for row in f:
+            if not row.startswith("!"):
+                for offset, cell in enumerate(row):
+                    if cell == "O":
+                        board[current_row][x+offset] = 1
+                current_row += 1
+
+
+calc_alive_neigh_func = alive_neighbours_sphere
+
+for arg in sys.argv:
+    if re.search(r"\.cells", arg):
+        init_board(arg)
 
 #################
 # Game Loop
@@ -94,11 +142,11 @@ while True:
     # update every cell for our next generation
     for x in range(width):
         for y in range(height):
-            alive_neighbour_count = alive_neighbours(board, (x, y))
+            alive_neighbour_count = calc_alive_neigh_func(board, (x, y))
             next_gen[y][x] = game_rules(alive_neighbour_count, board[y][x])
     
     # use next_gen as current_gen for next iteration
     board = next_gen
 
     # adjust to your demands
-    time.sleep(0.1)
+    time.sleep(0.02)

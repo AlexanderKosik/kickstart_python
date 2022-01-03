@@ -24,3 +24,6 @@ If you are a beginner, don't be discouraged by the vast amount of advanced topic
 
 ## Let's start
 [Here](content/overview.md) is the chapter overview for your 12-week Python programme.
+
+## License
+This course is licensed under a Creative Commons Attribution ShareAlike 4.0 International License.
