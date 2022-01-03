@@ -5,5 +5,5 @@
 * [3. Game of Life](gol.md)
     * [a. Variations](gol_variations.md)
 
-[Home](../../README.md)
+[Home](../../content/overview.md)
 

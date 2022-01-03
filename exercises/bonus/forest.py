@@ -37,10 +37,11 @@ rule_90 = {
 def print_board(board):
     """
     print the board.
-    Therefore the clean must be cleared before. To this with a system 'cls' command
+    Therefore the screeen must be cleared before. To this with a system 'clear'
+    command (unix) or 'cls' for windows
     """ 
     # clear the screen
-    os.system('cls')
+    os.system('clear')
 
     # print our board
     for line_number, row in enumerate(board):
