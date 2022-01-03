@@ -13,7 +13,7 @@
 * [9. Classes (missing)](09_classes/classes.md)
 * [10. Classes pt2 (missing)](10_classes_pt2/classes.md)
 * [11. Inheritance (missing)](11_inheritance/inheritance.md)
-* [12. Project](../exercises/bonus/overview.md)
+* [12. Project](../exercises/week12/overview.md)
 
 [Home](../README.md)
 
